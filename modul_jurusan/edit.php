@@ -35,7 +35,7 @@ $data = mysqli_fetch_array($edit);
        <h3>Form Edit Data Jurusan</h3>
     <div class="card-body">
         <form action="update.php" method="post" enctype="multipart/form-data">
-            <input hidden name="id" value="<?=$data['id']?>">
+            <input type="hidden" name="id" value="<?=$data['id']?>">
         <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Kode Jurusan</label>
         <input type="text" readonly value="<?=$data['kode']?>" name="kode" class="form-control" id="exampleInputPassword1">
