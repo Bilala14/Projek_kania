@@ -48,10 +48,12 @@
       <td><?=$data['kode']?></td>
       <td><?=$data['jurusan']?></td>
       <td>
-        <a class="btn btn-info btn-sm" href=""><i class="fa fa-pen-to-square"></i></a>
+        <a class="btn btn-info btn-sm" href="edit.php?id=<?=$data['id']?>"><i class="fa fa-pen-to-square"></i></a>
+
         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapus<?=$data['id']?>">
         <i class="fa-solid fa-trash"></i>
         </button>
+
         <div class="modal fade" id="hapus<?=$data['id']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
