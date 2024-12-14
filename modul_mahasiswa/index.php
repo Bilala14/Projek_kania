@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Dosen</title>
+    <title>Data Mahasiswa</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/all.css">
 </head>
@@ -17,7 +17,7 @@
         <div class="col-12 m-auto">
             <div class="card">
             <div class="card-header">
-                <h3 class="float-start">Data Dosen</h3>
+                <h3 class="float-start">Data Mahasiswa</h3>
                 <span class="float-end"><a class="btn btn-primary" href="form.php"><i class="fa-solid fa-square-plus"></i> Tambah Data</a></span>
             </div>
             <div class="card-body">
@@ -25,11 +25,11 @@
                 <thead>
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">NIDN</th>
-                        <th scope="col">Nama Dosen</th>
-                        <th scope="col">Jabatan</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">No Handphone</th>
+                        <th scope="col">NIM</th>
+                        <th scope="col">Nama Mahasiswa</th>
+                        <th scope="col">Jenis Kelamin</th>
+                        <th scope="col">Jurusan</th>
+                        <th scope="col">Dosen Wali</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -39,7 +39,7 @@
                     include("../koneksi.php");
 
                     #2. menulis query
-                    $tampil = "SELECT * FROM dosens";
+                    $tampil = "SELECT * FROM mahasiswas";
 
                     #3. jalankan query
                     $proses = mysqli_query($koneksi, $tampil);
@@ -50,11 +50,11 @@
                     ?>
                     <tr>
                         <th scope="row"><?=$nomor++?></th>
-                        <td><?=$data['nidn']?></td>
+                        <td><?=$data['nim']?></td>
                         <td><?=$data['nama']?></td>
-                        <td><?=$data['jabatan']?></td>
-                        <td><?=$data['email']?></td>
-                        <td><?=$data['no_hp']?></td>
+                        <td><?=$data['jk']?></td>
+                        <td><?=$data['jurusans_id']?></td>
+                        <td><?=$data['dosens_id']?></td>
                         <td>
                             <a class="btn btn-info btn-sm" href="edit.php?id=<?=$data['id']?>"><i class="fa fa-pen-to-square"></i></a>
                             
