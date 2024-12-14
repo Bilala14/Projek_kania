@@ -21,7 +21,7 @@
                 
             </div>
             <div class="card-body">
-            <form action="proses.php" method="post">
+            <form action="proses.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">NIM</label>
                     <input type="text" name="nim" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -32,14 +32,14 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Tempat Lahir</label>
-                    <input type="text" name="" class="form-control" id="exampleInputPassword1">
+                    <input type="text" name="tempat" class="form-control" id="exampleInputPassword1">
                 </div><div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Tanggal Lahir</label>
-                    <input type="date" name="nama" class="form-control" id="exampleInputPassword1">
+                    <input type="date" name="tanggal" class="form-control" id="exampleInputPassword1">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Alamat</label>
-                    <input type="text" name="no_hp" class="form-control" id="exampleInputPassword1">
+                    <input type="text" name="alamat" class="form-control" id="exampleInputPassword1">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Email</label>
@@ -48,19 +48,39 @@
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Jenis Kelamin</label>
                     <br>
-                    <input type="radio" name="jk" class="" id="exampleInputPassword1"> Laki Laki
-                    <input type="radio" name="jk" class="" id="exampleInputPassword1"> perempuan
+                    <input type="radio" name="jk" value="L" class="" id="exampleInputPassword1"> Laki Laki
+                    <input type="radio" name="jk" value="P" class="" id="exampleInputPassword1"> perempuan
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Jurusan</label>
                     <select name="jabatan" class="form-control" id="">
                         <option value="">-Pilih Jurusan-</option>
+                        <?php
+                            include('../koneksi.php');
+                            $sql_jur = "SELECT * FROM jurusans";
+                            $qry_jur = mysqli_query($koneksi,$sql_jur);
+                            foreach($qry_jur as $data_jur){
+                                ?>
+                                <option value="<?=$data_jur['id']?>"><?=$data_jur['jurusan']?></option>
+                                <?php
+                            }
+                        ?>
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Dosen Wali</label>
                     <select name="jabatan" class="form-control" id="">
                         <option value="">-Pilih Dosen Wali-</option>
+                        <?php
+                            include('../koneksi.php');
+                            $sql_dos = "SELECT * FROM dosens";
+                            $qry_dos = mysqli_query($koneksi,$sql_dos);
+                            foreach($qry_dos as $data_dos){
+                                ?>
+                                <option value="<?=$data_dos['id']?>"><?=$data_dos['nama']?></option>
+                                <?php
+                            }
+                        ?>
                     </select>
                 </div>
                 <div class="mb-3">
