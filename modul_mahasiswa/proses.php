@@ -3,15 +3,20 @@
 include("../koneksi.php");
 
 #2. mengambil value dari form
-$nidn = $_POST['nidn'];
+$nim = $_POST['nim'];
 $nama = $_POST['nama'];
-$jabatan = $_POST['jabatan'];
+$tempat = $_POST['tempat'];
+$tanggal = $_POST['tanggal'];
+$alamat = $_POST['alamat'];
 $email = $_POST['email'];
-$no_hp = $_POST['no_hp'];
+$jk = $_POST['jk'];
+$jur = $_POST['jur'];
+$dos= $_POST['dos'];
+
 
 #3. menulis query
-$simpan = "INSERT INTO dosens (nidn,nama,jabatan,email,no_hp) VALUES ('$nidn','$nama',
-'$jabatan','$email','$no_hp')";
+$simpan = "INSERT INTO mahasiswas (nim,nama,tmp_lahir,tgl_lahir,alamat,email,jk,jurusans_id,dosens_id) VALUES ('$nim','$nama','$tempat',
+'$tanggal','$alamat','$email','$jk','$jur','$dos')";
 
 #4. jalankan query
 $proses = mysqli_query($koneksi, $simpan);
