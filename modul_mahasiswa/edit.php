@@ -34,7 +34,7 @@ $data = mysqli_fetch_array($edit)
         <div class="col-8 m-auto">
             <div class="card">
             <div class="card-header">
-                <h3 class="float-start">Form Edit Data Dosen</h3>
+                <h3 class="float-start">Form Edit Data Mahasiswa</h3>
                 
             </div>
             <div class="card-body">
