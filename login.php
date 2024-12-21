@@ -1,3 +1,25 @@
+<?php
+if (isset($_POST['tombol'])){
+    #1.koneksi database
+    include_once("koneksi.php");
+
+    $email =$_POST['email'];
+    $pass =$_POST['password'];
+
+    $sql_cek = "SELECT * FROM users WHERE email='$email' AND password='$pass'";
+
+    $sql_cek = mysqli_query($koneksi,$sql_cek);
+
+    $cek = mysqli_num_rows($sql_cek);
+
+    #6. Buatkan IF jika loginnya berhasil atua gagal
+    if($cek > 0){
+        // login berhasil
+    }else{
+        // login gagal
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +39,7 @@
                 <h3>Sistem Informasi Mahasiswa</h3>
             </div>
             <div class="card-body">
-            <form>
+            <form method="post" action="login.php">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -31,7 +53,7 @@
     <input type="checkbox" name="cek" value="yes" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Ingat Saya</label>
   </div>
-  <button type="submit" class="btn btn-primary">Login</button>
+  <button type="submit" name="tombol" class="btn btn-primary">Login</button>
 </form>
             </div>
             </div>
