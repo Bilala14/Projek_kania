@@ -18,6 +18,10 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/is62_kania/Projek/modul_dosen/index.php">Data Dosen</a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/is62_kania/Projek/logout.php">Logout</a>
+        </li>
+      </ul>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
