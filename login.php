@@ -1,11 +1,12 @@
 <?php
+$pesan="";
 if(isset($_POST['tombol'])){
   #1. koneksi database
   include_once("koneksi.php");
 
   #2. mengambil value dari input
   $email = $_POST['email'];
-  $pass = $_POST['pass'];
+  $pass = md5($_POST['pass']);
 
   #3. tulisklajn query pengecekan apakaha data login tersedia di database?
   $sql_cek = "SELECT * FROM users WHERE email='$email' AND password='$pass'";
@@ -19,8 +20,14 @@ if(isset($_POST['tombol'])){
   #6. buatkan IF jika login berhasil atau gagal
   if($cek > 0){
     //login berhasil
+    $pesan = '<div class="alert alert-success" role="alert">
+    Login Berhasil,Jangan Coba Lagi!!!
+   </div>';
   }else{
     //login gagal
+    $pesan = '<div class="alert alert-danger" role="alert">
+   Login Gagal,Coba Lagi!!!
+  </div>';
   }
 }
 ?>
@@ -34,10 +41,10 @@ if(isset($_POST['tombol'])){
 </head>
 <body>
 
-
 <div class="container">
     <div class="row mt-5">
         <div class="col-8 m-auto">
+            <?=$pesan?>
             <div class="card">
             <div class="card-header text-center">
                 <h3>Sistem Informasi Mahasiswa</h3>
